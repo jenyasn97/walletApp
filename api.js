@@ -29,10 +29,13 @@ axiosApiInstanse.interceptors.response.use(
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
-        const newTokens = await axios.post(`https://securetoken.googleapis.com/v1/token?key=${apiKey} `, {
-          grant_type: "refresh_token",
-          refresh_token: getCookie("Wallet-Refresh-Token"),
-        });
+        const newTokens = await axios.post(
+          `https://securetoken.googleapis.com/v1/token?key=${apiKey} `,
+          {
+            grant_type: "refresh_token",
+            refresh_token: getCookie("Wallet-Refresh-Token"),
+          }
+        );
         authStore.userData.idToken = newTokens.data.access_token;
         authStore.userData.refreshToken = newTokens.data.refresh_token;
         document.cookie = `Wallet-Access-Token=${newTokens.data.access_token}; secure`;

@@ -9,7 +9,9 @@ export function cn(...inputs) {
 }
 
 export function getCookie(name) {
-  let cookie = document.cookie.split("; ").find((row) => row.startsWith(name + "="));
+  let cookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(name + "="));
   return cookie ? cookie.split("=")[1] : null;
 }
 
@@ -20,6 +22,7 @@ export async function addUser(firstName, lastName, email, id) {
     surname: lastName,
     email,
     createdAt: Date.now(),
+    img: `https://api.multiavatar.com/${firstName}`,
   };
   try {
     await axios.post(`${url}/users.json`, { ...newUser });

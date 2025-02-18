@@ -1,16 +1,48 @@
 <template>
   <div class="flex min-h-screen w-full flex-col">
-    <header class="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
-      <nav class="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
-        <a href="#" class="flex items-center gap-2 text-lg font-semibold md:text-base">
+    <header
+      class="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6"
+    >
+      <nav
+        class="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6"
+      >
+        <a
+          href="#"
+          class="flex items-center gap-2 text-lg font-semibold md:text-base"
+        >
           <Package2 class="h-6 w-6" />
           <span class="sr-only">Acme Inc</span>
         </a>
-        <a href="#" class="text-foreground transition-colors hover:text-foreground"> Dashboard </a>
-        <a href="#" class="text-muted-foreground transition-colors hover:text-foreground"> Orders </a>
-        <a href="#" class="text-muted-foreground transition-colors hover:text-foreground"> Products </a>
-        <a href="#" class="text-muted-foreground transition-colors hover:text-foreground"> Customers </a>
-        <a href="#" class="text-muted-foreground transition-colors hover:text-foreground"> Analytics </a>
+        <a
+          href="#"
+          class="text-foreground transition-colors hover:text-foreground"
+        >
+          Dashboard
+        </a>
+        <a
+          href="#"
+          class="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Orders
+        </a>
+        <a
+          href="#"
+          class="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Products
+        </a>
+        <a
+          href="#"
+          class="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Customers
+        </a>
+        <a
+          href="#"
+          class="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Analytics
+        </a>
       </nav>
       <Sheet>
         <SheetTrigger as-child>
@@ -26,10 +58,18 @@
               <span class="sr-only">Acme Inc</span>
             </a>
             <a href="#" class="hover:text-foreground"> Dashboard </a>
-            <a href="#" class="text-muted-foreground hover:text-foreground"> Orders </a>
-            <a href="#" class="text-muted-foreground hover:text-foreground"> Products </a>
-            <a href="#" class="text-muted-foreground hover:text-foreground"> Customers </a>
-            <a href="#" class="text-muted-foreground hover:text-foreground"> Analytics </a>
+            <a href="#" class="text-muted-foreground hover:text-foreground">
+              Orders
+            </a>
+            <a href="#" class="text-muted-foreground hover:text-foreground">
+              Products
+            </a>
+            <a href="#" class="text-muted-foreground hover:text-foreground">
+              Customers
+            </a>
+            <a href="#" class="text-muted-foreground hover:text-foreground">
+              Analytics
+            </a>
           </nav>
         </SheetContent>
       </Sheet>
@@ -37,7 +77,11 @@
         <form class="ml-auto flex-1 sm:flex-initial flex gap-2 items-center">
           <Dialog>
             <DialogTrigger as-child>
-              <Button variant="outline" size="icon" class="w-10 h-10 flex justify-center items-center z-1">
+              <Button
+                variant="outline"
+                size="icon"
+                class="w-10 h-10 flex justify-center items-center z-1"
+              >
                 <CirclePlus class="w-4 h-4" />
               </Button>
             </DialogTrigger>
@@ -54,15 +98,28 @@
               </div>
               <DialogFooter class="sm:justify-start">
                 <DialogClose as-child>
-                  <Button type="button" @click="() => clickTransaction(test, authStore.userData.localId)"> Add </Button>
+                  <Button
+                    type="button"
+                    @click="
+                      () => clickTransaction(test, authStore.userData.localId)
+                    "
+                  >
+                    Add
+                  </Button>
                 </DialogClose>
               </DialogFooter>
             </DialogContent>
           </Dialog>
 
           <div class="relative">
-            <Search class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input type="search" placeholder="Search products..." class="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]" />
+            <Search
+              class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground"
+            />
+            <Input
+              type="search"
+              placeholder="Search products..."
+              class="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
+            />
           </div>
         </form>
         <DropdownMenu>
@@ -73,7 +130,10 @@
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuLabel
+              >{{ userStore.userInReal.name }}
+              {{ userStore.userInReal.surname }}
+            </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuItem>Support</DropdownMenuItem>
@@ -86,7 +146,9 @@
     <main class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
       <div class="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <Card>
-          <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardHeader
+            class="flex flex-row items-center justify-between space-y-0 pb-2"
+          >
             <CardTitle class="text-sm font-medium"> Доходы </CardTitle>
             <CircleDollarSign class="h-6 w-6 text-muted-foreground" />
           </CardHeader>
@@ -96,8 +158,12 @@
           </CardContent>
         </Card>
         <Card>
-          <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle class="text-sm font-medium text-red-800"> Расходы </CardTitle>
+          <CardHeader
+            class="flex flex-row items-center justify-between space-y-0 pb-2"
+          >
+            <CardTitle class="text-sm font-medium text-red-800">
+              Расходы
+            </CardTitle>
             <HandCoins class="h-6 w-6 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -106,8 +172,12 @@
           </CardContent>
         </Card>
         <Card>
-          <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle class="text-sm font-medium"> Баланс за период </CardTitle>
+          <CardHeader
+            class="flex flex-row items-center justify-between space-y-0 pb-2"
+          >
+            <CardTitle class="text-sm font-medium">
+              Баланс за период
+            </CardTitle>
             <CreditCard class="h-6 w-6 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -116,7 +186,9 @@
           </CardContent>
         </Card>
         <Card>
-          <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardHeader
+            class="flex flex-row items-center justify-between space-y-0 pb-2"
+          >
             <CardTitle class="text-sm font-medium"> Текущий остаток </CardTitle>
             <Landmark class="h-6 w-6 text-muted-foreground" />
           </CardHeader>
@@ -131,7 +203,9 @@
           <CardHeader class="flex flex-row items-center">
             <div class="grid gap-2">
               <CardTitle>Операции</CardTitle>
-              <CardDescription> Recent transactions from your store. </CardDescription>
+              <CardDescription>
+                Recent transactions from your store.
+              </CardDescription>
             </div>
             <Button as-child size="sm" class="ml-auto gap-1">
               <a href="#">
@@ -155,61 +229,93 @@
                 <TableRow>
                   <TableCell>
                     <div class="font-medium">Liam Johnson</div>
-                    <div class="hidden text-sm text-muted-foreground md:inline">liam@example.com</div>
+                    <div class="hidden text-sm text-muted-foreground md:inline">
+                      liam@example.com
+                    </div>
                   </TableCell>
                   <TableCell class="hidden xl:table-column"> Sale </TableCell>
                   <TableCell class="hidden xl:table-column">
                     <Badge class="text-xs" variant="outline"> Approved </Badge>
                   </TableCell>
-                  <TableCell class="hidden md:table-cell lg:hidden xl:table-column"> 2023-06-23 </TableCell>
+                  <TableCell
+                    class="hidden md:table-cell lg:hidden xl:table-column"
+                  >
+                    2023-06-23
+                  </TableCell>
                   <TableCell class="text-right"> $250.00 </TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>
                     <div class="font-medium">Olivia Smith</div>
-                    <div class="hidden text-sm text-muted-foreground md:inline">olivia@example.com</div>
+                    <div class="hidden text-sm text-muted-foreground md:inline">
+                      olivia@example.com
+                    </div>
                   </TableCell>
                   <TableCell class="hidden xl:table-column"> Refund </TableCell>
                   <TableCell class="hidden xl:table-column">
                     <Badge class="text-xs" variant="outline"> Declined </Badge>
                   </TableCell>
-                  <TableCell class="hidden md:table-cell lg:hidden xl:table-column"> 2023-06-24 </TableCell>
+                  <TableCell
+                    class="hidden md:table-cell lg:hidden xl:table-column"
+                  >
+                    2023-06-24
+                  </TableCell>
                   <TableCell class="text-right"> $150.00 </TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>
                     <div class="font-medium">Noah Williams</div>
-                    <div class="hidden text-sm text-muted-foreground md:inline">noah@example.com</div>
+                    <div class="hidden text-sm text-muted-foreground md:inline">
+                      noah@example.com
+                    </div>
                   </TableCell>
-                  <TableCell class="hidden xl:table-column"> Subscription </TableCell>
+                  <TableCell class="hidden xl:table-column">
+                    Subscription
+                  </TableCell>
                   <TableCell class="hidden xl:table-column">
                     <Badge class="text-xs" variant="outline"> Approved </Badge>
                   </TableCell>
-                  <TableCell class="hidden md:table-cell lg:hidden xl:table-column"> 2023-06-25 </TableCell>
+                  <TableCell
+                    class="hidden md:table-cell lg:hidden xl:table-column"
+                  >
+                    2023-06-25
+                  </TableCell>
                   <TableCell class="text-right"> $350.00 </TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>
                     <div class="font-medium">Emma Brown</div>
-                    <div class="hidden text-sm text-muted-foreground md:inline">emma@example.com</div>
+                    <div class="hidden text-sm text-muted-foreground md:inline">
+                      emma@example.com
+                    </div>
                   </TableCell>
                   <TableCell class="hidden xl:table-column"> Sale </TableCell>
                   <TableCell class="hidden xl:table-column">
                     <Badge class="text-xs" variant="outline"> Approved </Badge>
                   </TableCell>
-                  <TableCell class="hidden md:table-cell lg:hidden xl:table-column"> 2023-06-26 </TableCell>
+                  <TableCell
+                    class="hidden md:table-cell lg:hidden xl:table-column"
+                  >
+                    2023-06-26
+                  </TableCell>
                   <TableCell class="text-right"> $450.00 </TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>
                     <div class="font-medium">Liam Johnson</div>
-                    <div class="hidden text-sm text-muted-foreground md:inline">liam@example.com</div>
+                    <div class="hidden text-sm text-muted-foreground md:inline">
+                      liam@example.com
+                    </div>
                   </TableCell>
                   <TableCell class="hidden xl:table-column"> Sale </TableCell>
                   <TableCell class="hidden xl:table-column">
                     <Badge class="text-xs" variant="outline"> Approved </Badge>
                   </TableCell>
-                  <TableCell class="hidden md:table-cell lg:hidden xl:table-column"> 2023-06-27 </TableCell>
+                  <TableCell
+                    class="hidden md:table-cell lg:hidden xl:table-column"
+                  >
+                    2023-06-27
+                  </TableCell>
                   <TableCell class="text-right"> $550.00 </TableCell>
                 </TableRow>
               </TableBody>
@@ -223,12 +329,14 @@
           <CardContent class="grid gap-8">
             <div class="flex items-center gap-4">
               <Avatar class="hidden h-9 w-9 sm:flex">
-                <AvatarImage :src="svgCode" alt="Avatar" />
+                <AvatarImage src="avatarUrl" alt="Avatar" />
                 <AvatarFallback>OM</AvatarFallback>
               </Avatar>
               <div class="grid gap-1">
                 <p class="text-sm font-medium leading-none">Olivia Martin</p>
-                <p class="text-sm text-muted-foreground">olivia.martin@email.com</p>
+                <p class="text-sm text-muted-foreground">
+                  olivia.martin@email.com
+                </p>
               </div>
               <div class="ml-auto font-medium">+$1,999.00</div>
             </div>
@@ -239,7 +347,9 @@
               </Avatar>
               <div class="grid gap-1">
                 <p class="text-sm font-medium leading-none">Jackson Lee</p>
-                <p class="text-sm text-muted-foreground">jackson.lee@email.com</p>
+                <p class="text-sm text-muted-foreground">
+                  jackson.lee@email.com
+                </p>
               </div>
               <div class="ml-auto font-medium">+$39.00</div>
             </div>
@@ -250,7 +360,9 @@
               </Avatar>
               <div class="grid gap-1">
                 <p class="text-sm font-medium leading-none">Isabella Nguyen</p>
-                <p class="text-sm text-muted-foreground">isabella.nguyen@email.com</p>
+                <p class="text-sm text-muted-foreground">
+                  isabella.nguyen@email.com
+                </p>
               </div>
               <div class="ml-auto font-medium">+$299.00</div>
             </div>
@@ -272,7 +384,9 @@
               </Avatar>
               <div class="grid gap-1">
                 <p class="text-sm font-medium leading-none">Sofia Davis</p>
-                <p class="text-sm text-muted-foreground">sofia.davis@email.com</p>
+                <p class="text-sm text-muted-foreground">
+                  sofia.davis@email.com
+                </p>
               </div>
               <div class="ml-auto font-medium">+$39.00</div>
             </div>
@@ -287,7 +401,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -298,8 +418,26 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ArrowUpRight, CircleUser, CreditCard, CircleDollarSign, Menu, Package2, Search, HandCoins, Landmark, CirclePlus } from "lucide-vue-next";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  ArrowUpRight,
+  CircleUser,
+  CreditCard,
+  CircleDollarSign,
+  Menu,
+  Package2,
+  Search,
+  HandCoins,
+  Landmark,
+  CirclePlus,
+} from "lucide-vue-next";
 import {
   Dialog,
   DialogClose,
@@ -313,39 +451,28 @@ import {
 import { Label } from "@/components/ui/label";
 import { Copy } from "lucide-vue-next";
 
-import multiavatar from "@multiavatar/multiavatar/esm";
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import useAuthStore from "@/store/auth";
+import useUserStore from "@/store/userStore";
+
 import axios from "axios";
 import { addTransaction } from "@/lib/utils";
-let svgCode = ref(multiavatar("Binx Bond"));
-const apiKey = import.meta.env.VITE_API_KEY;
+
 const test = ref(null);
 const authStore = useAuthStore();
+const userStore = useUserStore();
+
 async function clickTransaction(desc, id) {
   await addTransaction(desc, id);
 }
 
-async function getUsers() {
-  const authStore = useAuthStore();
-  try {
-    authStore.userData = JSON.parse(localStorage.getItem("userData"));
-    const user = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${apiKey}`, {
-      idToken: authStore.userData.idToken,
-    });
-    console.log(user.data);
-  } catch (e) {
-    console.log(e);
-  }
-}
-getUsers();
+userStore.getUserInRealtime();
 
 function logOut() {
   document.cookie.split(";").forEach((cookie) => {
     const [name] = cookie.split("=");
     document.cookie = `${name.trim()}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
   });
-
   location.reload();
 }
 </script>

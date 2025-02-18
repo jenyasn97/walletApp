@@ -5,6 +5,7 @@ import axiosApiInstanse from "../../api";
 export const useAuthStore = defineStore("auth", () => {
   const apiKey = import.meta.env.VITE_API_KEY;
   const isLoading = ref(false);
+  const error = ref("");
 
   const userData = ref({
     idToken: "",
@@ -12,16 +13,17 @@ export const useAuthStore = defineStore("auth", () => {
     refreshToken: "",
   });
 
-  const error = ref("");
-
   async function auth(payload, type) {
     const stringUrl = type === "login" ? "signInWithPassword" : "signUp";
     try {
       isLoading.value = true;
-      const response = await axiosApiInstanse.post(`https://identitytoolkit.googleapis.com/v1/accounts:${stringUrl}?key=${apiKey}`, {
-        ...payload,
-        returnSecureToken: true,
-      });
+      const response = await axiosApiInstanse.post(
+        `https://identitytoolkit.googleapis.com/v1/accounts:${stringUrl}?key=${apiKey}`,
+        {
+          ...payload,
+          returnSecureToken: true,
+        }
+      );
 
       userData.value = {
         idToken: response.data.idToken,
