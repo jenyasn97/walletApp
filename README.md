@@ -1,5 +1,50 @@
-# Vue 3 + Vite
+# Проект
+MyWalletApp
+## Описание
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Этот проект разрабатывается с использованием современных технологий фронтенда и предназначен для быстрой и удобной разработки пользовательского интерфейса.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Используемые технологии
+
+- **IDE**: Visual Studio Code
+- **Фреймворк**: Vue 3
+- **Сборщик**: Vite
+- **Стилизация**: Tailwind CSS
+- **Бэкенд-сервис**: Firebase
+
+## Настройка окружения
+
+Для корректной работы проекта необходимо создать файл `.env` в корневой директории и указать в нём следующие переменные окружения:
+
+```
+VITE_API_KEY=your_api_key_here
+VITE_BASE_URL=your_api_url_here
+```
+
+## Установка и запуск проекта
+
+1. Клонируйте репозиторий:
+   ```sh
+   git clone https://github.com/jenyasn97/walletApp.git
+   ```
+2. Перейдите в папку с проектом:
+   ```sh
+   cd walletApp
+   ```
+3. Установите зависимости:
+   ```sh
+   npm install
+   ```
+4. Запустите проект:
+   ```sh
+   npm run dev
+   ```
+
+## Сборка проекта
+
+Для сборки проекта выполните команду:
+
+```sh
+npm run build
+```
+
